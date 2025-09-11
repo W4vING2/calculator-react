@@ -24,4 +24,14 @@ body {
   column-gap: 8px;
 }
 
+span {
+  width: 95%;
+  text-align: end;
+  padding: 0 25px 0 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0 20px 0;
+}
+
 /*# sourceMappingURL=index.css.map */
