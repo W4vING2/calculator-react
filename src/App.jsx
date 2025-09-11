@@ -39,28 +39,27 @@ function App() {
         setValue('0')
         break
       case '=':
-        setObjectResult({
-          ...objectResult,
-          secondValue: spanContent.current.textContent.substring(objectResult.indexOfOperator, spanContent.current.textContent.length)})
-        const {firstValue, secondValue} = objectResult
+        const operatorIndex = value.indexOf(objectResult.operator);
+        const secondVal = value.substring(operatorIndex + 1);
+
         switch(objectResult.operator){
           case '+':
-            setValue(String(Number(firstValue) + Number(secondValue)))
-            console.log(firstValue, secondValue, objectResult.operator, objectResult.indexOfOperator)
-            break
+            setValue(String(Number(objectResult.firstValue) + Number(secondVal)));
+            break;
           case '-':
-            setValue(String(Number(firstValue) - Number(secondValue)))
-            break
+            setValue(String(Number(objectResult.firstValue) - Number(secondVal)));
+            break;
           case '/':
-            setValue(String(Number(firstValue) / Number(secondValue)))
-            break
+            setValue(String(Number(objectResult.firstValue) / Number(secondVal)));
+            break;
           case 'X':
-            setValue(String(Number(firstValue) * Number(secondValue)))
-            break
+            setValue(String(Number(objectResult.firstValue) * Number(secondVal)));
+            break;
           case '%':
-            setValue(String(Number(firstValue) % Number(secondValue)))
-            break
+            setValue(String(Number(objectResult.firstValue) % Number(secondVal)));
+            break;
         }
+
         break
       case 'x':
         if (spanContent.current.textContent.length === 1) return
@@ -87,6 +86,7 @@ function App() {
         break
     }
   }
+
   return (
     <>
       <span ref={spanContent}>{value}</span>
