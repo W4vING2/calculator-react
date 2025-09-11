@@ -1,0 +1,8 @@
+.buttons-row {
+  display: flex;
+  column-gap: 10px;
+  width: 95%;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=ButtonsRow.css.map */
